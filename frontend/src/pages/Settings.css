@@ -1,0 +1,42 @@
+.settings-card {
+  background: #fff;
+  border-radius: 14px;
+  border: 1px solid #eef0f3;
+  padding: 28px;
+  max-width: 640px;
+}
+
+.settings-section-title {
+  font-size: 15px;
+  font-weight: 700;
+  color: #111827;
+  margin-bottom: 16px;
+  margin-top: 4px;
+}
+
+.settings-card .settings-section-title:not(:first-child) {
+  margin-top: 28px;
+  padding-top: 24px;
+  border-top: 1px solid #f3f4f6;
+}
+
+/* MOBILE STYLES */
+@media (max-width: 768px) {
+  .dashboard-main {
+    margin-left: 0 !important;
+    width: 100% !important;
+  }
+
+  .settings-card {
+    padding: 18px;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+
+  .btn-primary {
+    width: 100%;
+    justify-content: center;
+  }
+}

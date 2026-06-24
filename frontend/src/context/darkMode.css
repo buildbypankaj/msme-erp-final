@@ -1,0 +1,205 @@
+/* Dark mode overrides — applies when <html data-theme="dark"> */
+
+:root {
+  --bg-primary: #f6f7fb;
+  --bg-card: #ffffff;
+  --text-primary: #111827;
+  --text-secondary: #6b7280;
+  --border-color: #e0e3e8;
+}
+
+[data-theme="dark"] {
+  --bg-primary: #0f1115;
+  --bg-card: #1a1d24;
+  --text-primary: #e5e7eb;
+  --text-secondary: #9ca3af;
+  --border-color: #2d313a;
+}
+
+[data-theme="dark"] body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+}
+
+/* Page-level backgrounds */
+[data-theme="dark"] .dashboard-layout,
+[data-theme="dark"] .dashboard-content {
+  background-color: var(--bg-primary) !important;
+  color: var(--text-primary);
+}
+
+/* Navbar */
+[data-theme="dark"] .navbar {
+  background-color: var(--bg-card) !important;
+  border-color: var(--border-color) !important;
+}
+
+[data-theme="dark"] .navbar-left h1 {
+  color: var(--text-primary) !important;
+}
+
+[data-theme="dark"] .hamburger-icon {
+  color: var(--text-primary) !important;
+}
+
+/* Stat cards (Dashboard) */
+[data-theme="dark"] .stat-card {
+  background-color: var(--bg-card) !important;
+  border-color: var(--border-color) !important;
+}
+
+[data-theme="dark"] .stat-label {
+  color: var(--text-secondary) !important;
+}
+
+[data-theme="dark"] .stat-value {
+  color: var(--text-primary) !important;
+}
+
+[data-theme="dark"] .section-title {
+  color: var(--text-primary) !important;
+}
+
+/* GST Calculator card */
+[data-theme="dark"] .gst-card {
+  background: var(--bg-card) !important;
+  border-color: var(--border-color) !important;
+}
+
+[data-theme="dark"] .gst-title {
+  color: var(--text-primary) !important;
+}
+
+[data-theme="dark"] .gst-input-group label {
+  color: var(--text-secondary) !important;
+}
+
+[data-theme="dark"] .gst-input-group input,
+[data-theme="dark"] .gst-input-group select {
+  background: var(--bg-primary) !important;
+  border-color: var(--border-color) !important;
+  color: var(--text-primary) !important;
+}
+
+[data-theme="dark"] .gst-result {
+  background: var(--bg-primary) !important;
+  border-color: var(--border-color) !important;
+}
+
+[data-theme="dark"] .gst-result-row {
+  color: var(--text-secondary) !important;
+  border-color: var(--border-color) !important;
+}
+
+[data-theme="dark"] .gst-result-row strong {
+  color: var(--text-primary) !important;
+}
+
+/* Tables and cards used across Products, Customers, Suppliers, Invoices, Payments, Expenses */
+[data-theme="dark"] .table-card,
+[data-theme="dark"] .modal-card,
+[data-theme="dark"] .settings-card,
+[data-theme="dark"] .empty-state {
+  background-color: var(--bg-card) !important;
+  border-color: var(--border-color) !important;
+  color: var(--text-primary) !important;
+}
+
+[data-theme="dark"] .page-header h1,
+[data-theme="dark"] .page-header h2,
+[data-theme="dark"] .settings-section-title {
+  color: var(--text-primary) !important;
+}
+
+[data-theme="dark"] .data-table {
+  background-color: var(--bg-card) !important;
+  color: var(--text-primary) !important;
+}
+
+[data-theme="dark"] .data-table th {
+  background-color: var(--bg-primary) !important;
+  color: var(--text-secondary) !important;
+  border-color: var(--border-color) !important;
+}
+
+[data-theme="dark"] .data-table td {
+  border-color: var(--border-color) !important;
+  color: var(--text-primary) !important;
+}
+
+/* Forms and inputs everywhere */
+[data-theme="dark"] input,
+[data-theme="dark"] select,
+[data-theme="dark"] textarea {
+  background-color: var(--bg-primary) !important;
+  color: var(--text-primary) !important;
+  border-color: var(--border-color) !important;
+}
+
+[data-theme="dark"] .form-row label {
+  color: var(--text-secondary) !important;
+}
+
+/* Modal overlay stays dark/dim regardless of theme */
+[data-theme="dark"] .modal-overlay {
+  background-color: rgba(0, 0, 0, 0.6) !important;
+}
+
+/* Reports page */
+[data-theme="dark"] .report-tab,
+[data-theme="dark"] .summary-box,
+[data-theme="dark"] .report-summary {
+  background-color: var(--bg-card) !important;
+  border-color: var(--border-color) !important;
+  color: var(--text-primary) !important;
+}
+
+/* Analytics charts */
+[data-theme="dark"] .chart-card {
+  background-color: var(--bg-card) !important;
+  border-color: var(--border-color) !important;
+}
+
+[data-theme="dark"] .chart-title {
+  color: var(--text-primary) !important;
+}
+
+[data-theme="dark"] .analytics-summary {
+  color: var(--text-primary) !important;
+}
+
+/* Users page */
+[data-theme="dark"] .user-tab {
+  background-color: var(--bg-card) !important;
+  color: var(--text-secondary) !important;
+}
+
+/* Profile page */
+[data-theme="dark"] .profile-tab {
+  color: var(--text-secondary) !important;
+}
+
+/* Welcome banner stays the same gradient in both themes (already has white text) */
+/* Search box in navbar */
+[data-theme="dark"] .navbar-search {
+  background: var(--bg-primary) !important;
+  color: var(--text-secondary) !important;
+}
+
+[data-theme="dark"] .navbar-search:focus-within {
+  background: var(--bg-card) !important;
+  color: var(--text-primary) !important;
+}
+
+[data-theme="dark"] .navbar-search input {
+  color: var(--text-primary) !important;
+}
+
+[data-theme="dark"] .navbar-search input::placeholder {
+  color: var(--text-secondary) !important;
+}
+
+/* Table row hover */
+[data-theme="dark"] .data-table tbody tr:hover {
+  background: #232730 !important;
+}

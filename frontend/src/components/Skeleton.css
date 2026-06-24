@@ -1,0 +1,46 @@
+.skeleton-box {
+  background: linear-gradient(
+    90deg,
+    #e5e7eb 25%,
+    #f3f4f6 37%,
+    #e5e7eb 63%
+  );
+  background-size: 400% 100%;
+  border-radius: 6px;
+  animation: skeleton-shimmer 1.4s ease infinite;
+}
+
+@keyframes skeleton-shimmer {
+  0% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.skeleton-row td {
+  padding: 16px 20px;
+}
+
+.skeleton-card {
+  cursor: default;
+}
+
+.skeleton-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  flex-shrink: 0;
+}
+
+/* Dark mode shimmer */
+[data-theme="dark"] .skeleton-box {
+  background: linear-gradient(
+    90deg,
+    #2d313a 25%,
+    #3a3f4a 37%,
+    #2d313a 63%
+  );
+  background-size: 400% 100%;
+}

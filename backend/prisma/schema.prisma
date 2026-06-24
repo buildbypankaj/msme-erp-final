@@ -1,0 +1,157 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model User {
+  id              Int       @id @default(autoincrement())
+  name            String
+  email           String    @unique
+  password        String
+  role            String    @default("staff")
+  isActive        Boolean   @default(true)
+  lastLogin       DateTime?
+  resetOtp        String?
+  resetOtpExpiry  DateTime?
+  verifyOtp       String?
+  verifyOtpExpiry DateTime?
+  isVerified      Boolean   @default(false)
+  isApproved      Boolean   @default(false)
+  approvalStatus  String    @default("pending")
+  createdAt       DateTime  @default(now())
+  updatedAt       DateTime  @updatedAt
+}
+
+model Category {
+  id        Int       @id @default(autoincrement())
+  name      String    @unique
+  isActive  Boolean   @default(true)
+  products  Product[]
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+}
+
+model Product {
+  id            Int            @id @default(autoincrement())
+  name          String
+  sku           String         @unique
+  categoryId    Int
+  category      Category       @relation(fields: [categoryId], references: [id])
+  purchasePrice Float
+  sellingPrice  Float
+  currentStock  Int            @default(0)
+  minStock      Int            @default(5)
+  isActive      Boolean        @default(true)
+  purchaseItems PurchaseItem[]
+  invoiceItems  InvoiceItem[]
+  createdAt     DateTime       @default(now())
+  updatedAt     DateTime       @updatedAt
+}
+model Customer {
+  id        Int      @id @default(autoincrement())
+  name      String
+  phone     String   @unique
+  email     String?
+  address   String?
+  gstNumber String?
+  isActive  Boolean  @default(true)
+  invoices  Invoice[]
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+model Supplier {
+  id        Int      @id @default(autoincrement())
+  name      String
+  phone     String   @unique
+  email     String?
+  address   String?
+  gstNumber String?
+  isActive  Boolean  @default(true)
+  purchases Purchase[]
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+model Purchase {
+  id            Int            @id @default(autoincrement())
+  supplierId    Int
+  supplier      Supplier       @relation(fields: [supplierId], references: [id])
+  totalAmount   Float
+  paymentStatus String         @default("unpaid")
+  purchaseDate  DateTime       @default(now())
+  items         PurchaseItem[]
+  createdAt     DateTime       @default(now())
+  updatedAt     DateTime       @updatedAt
+}
+
+model PurchaseItem {
+  id         Int      @id @default(autoincrement())
+  purchaseId Int
+  purchase   Purchase @relation(fields: [purchaseId], references: [id], onDelete: Cascade)
+  productId  Int
+  product    Product  @relation(fields: [productId], references: [id])
+  quantity   Int
+  price      Float
+}
+
+model Invoice {
+  id            Int           @id @default(autoincrement())
+  invoiceNumber String        @unique
+  customerId    Int
+  customer      Customer      @relation(fields: [customerId], references: [id])
+  totalAmount   Float
+  discount      Float         @default(0)
+  paidAmount    Float         @default(0)
+  dueAmount     Float         @default(0)
+  paymentStatus String        @default("unpaid")
+  invoiceDate   DateTime      @default(now())
+  items         InvoiceItem[]
+  payments      Payment[]
+  createdAt     DateTime      @default(now())
+  updatedAt     DateTime      @updatedAt
+}
+
+model InvoiceItem {
+  id        Int     @id @default(autoincrement())
+  invoiceId Int
+  invoice   Invoice @relation(fields: [invoiceId], references: [id], onDelete: Cascade)
+  productId Int
+  product   Product @relation(fields: [productId], references: [id])
+  quantity  Int
+  price     Float
+}
+model Payment {
+  id          Int      @id @default(autoincrement())
+  invoiceId   Int
+  invoice     Invoice  @relation(fields: [invoiceId], references: [id])
+  amount      Float
+  paymentMode String   @default("cash")
+  notes       String?
+  paymentDate DateTime @default(now())
+  createdAt   DateTime @default(now())
+}
+model BusinessSettings {
+  id              Int      @id @default(autoincrement())
+  businessName    String   @default("My Business")
+  address         String?
+  phone           String?
+  email           String?
+  gstNumber       String?
+  currency        String   @default("INR")
+  invoicePrefix   String   @default("INV")
+  defaultTaxRate  Float    @default(0)
+  lowStockAlert   Int      @default(5)
+  updatedAt       DateTime @updatedAt
+}
+model Expense {
+  id          Int      @id @default(autoincrement())
+  title       String
+  category    String
+  amount      Float
+  expenseDate DateTime @default(now())
+  notes       String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}

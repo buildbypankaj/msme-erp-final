@@ -1,0 +1,160 @@
+.gst-card {
+  background: linear-gradient(135deg, #fff 0%, #f8f7ff 100%);
+  border-radius: 16px;
+  border: 1px solid #e8e3ff;
+  padding: 24px;
+  margin-bottom: 24px;
+  animation: fadeUp 0.4s ease-out;
+  box-shadow: 0 4px 20px rgba(79, 70, 229, 0.06);
+}
+
+.gst-title {
+  font-size: 17px;
+  font-weight: 700;
+  color: #111827;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.gst-title::before {
+  content: '🧮';
+  font-size: 20px;
+}
+
+.gst-form {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 18px;
+}
+
+.gst-input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.gst-input-group label {
+  font-size: 12px;
+  font-weight: 700;
+  color: #6b7280;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+}
+
+.gst-input-group input,
+.gst-input-group select {
+  padding: 11px 14px;
+  border: 1.5px solid #e5e7eb;
+  border-radius: 10px;
+  font-size: 14px;
+  outline: none;
+  transition: all 0.2s ease;
+  background: #fff;
+  color: #111827;
+}
+
+.gst-input-group input:focus,
+.gst-input-group select:focus {
+  border-color: #4f46e5;
+  box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
+}
+
+.gst-buttons {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 18px;
+}
+
+.gst-btn {
+  padding: 11px 28px;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  transition: all 0.2s ease;
+}
+
+.gst-btn.calculate {
+  background: linear-gradient(90deg, #4f46e5, #7c3aed);
+  color: #fff;
+  box-shadow: 0 4px 12px rgba(79, 70, 229, 0.25);
+}
+
+.gst-btn.calculate:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(79, 70, 229, 0.35);
+}
+
+.gst-btn.reset {
+  background: #f3f4f6;
+  color: #6b7280;
+  border: 1.5px solid #e5e7eb;
+}
+
+.gst-btn.reset:hover {
+  background: #e5e7eb;
+  color: #374151;
+}
+
+.gst-result {
+  background: #fff;
+  border-radius: 12px;
+  padding: 18px;
+  border: 1px solid #eef0f3;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+}
+
+.gst-result-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+  font-size: 13.5px;
+  color: #374151;
+  border-bottom: 1px dashed #f0f0f0;
+}
+
+.gst-result-row:last-child {
+  border-bottom: none;
+}
+
+.gst-result-row strong {
+  font-weight: 600;
+  color: #1f2937;
+}
+
+.gst-result-row.total {
+  margin-top: 6px;
+  padding: 14px 16px;
+  background: linear-gradient(90deg, #4f46e5, #7c3aed);
+  border-radius: 10px;
+  font-size: 15px;
+  font-weight: 700;
+  color: #fff;
+}
+
+.gst-result-row.total span,
+.gst-result-row.total strong {
+  color: #fff;
+  font-size: 16px;
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+  .gst-form {
+    grid-template-columns: 1fr;
+  }
+
+  .gst-buttons {
+    flex-direction: column;
+  }
+
+  .gst-btn {
+    width: 100%;
+    text-align: center;
+  }
+}
